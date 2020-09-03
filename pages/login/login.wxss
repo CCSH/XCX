@@ -1,0 +1,51 @@
+/* pages/login/login.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 图标 */
+.icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.login {
+  display: flex;
+  font-size: 16px;
+  padding: 0 40px;
+  background: white;
+  height: 40px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+  padding: 0 10px;
+  align-items: center;
+}
+
+.login .name {
+  width: 60px;
+}
+
+.login .content {
+  flex: 1;
+}
+
+/* 操作 */
+.bottom-btn {
+  margin: 20px 50px;
+  width: 120px;
+  background: #0088fe;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.version {
+  font-size: 12px;
+  color: gray;
+  position: fixed;
+  bottom: 20px;
+}

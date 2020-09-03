@@ -1,0 +1,8 @@
+<!-- pages/welcome/welcome.wxml -->
+<swiper class="banner">
+  <block wx:for="{{ listData }}" wx:key="index">
+    <swiper-item class="content" bind:tap="onCheck" data-param="{{index}}">
+      <image src="{{'/images/' + item + '.png'}}" />
+    </swiper-item>
+  </block>
+</swiper>

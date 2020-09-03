@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/ad/ad",
+    "pages/welcome/welcome",
+    "pages/home/home",
+    "pages/school/school",
+    "pages/e_village/e_village",
+    "pages/message/message",
+    "pages/me/me",
+    "pages/login/login"
+  ],
+  "usingComponents": {
+    "van-image": "@vant/weapp/image"
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "易村"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#FC594E",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/tabbar_home.png",
+        "selectedIconPath": "images/tabbar_home_h.png"
+      },
+      {
+        "pagePath": "pages/school/school",
+        "text": "学堂",
+        "iconPath": "images/tabbar_school.png",
+        "selectedIconPath": "images/tabbar_school_h.png"
+      },
+      {
+        "pagePath": "pages/e_village/e_village",
+        "text": "e村",
+        "iconPath": "images/tabbar_village.png",
+        "selectedIconPath": "images/tabbar_village_h.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "交流",
+        "iconPath": "images/tabbar_message.png",
+        "selectedIconPath": "images/tabbar_message_h.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/tabbar_me.png",
+        "selectedIconPath": "images/tabbar_me_h.png"
+      }
+    ]
+  }
+}

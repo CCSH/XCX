@@ -1,0 +1,7 @@
+<!-- pages/ad/ad.wxml -->
+<view>
+  <van-image class="content" src="1" bind:tap="onClick" use-loading-slot>
+    <!-- <image src="/images/ad.png" /> -->
+  </van-image>
+  <view>{{1234}}</view>
+</view>

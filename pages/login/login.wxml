@@ -1,0 +1,17 @@
+<!-- <van-toast id="van-toast" /> -->
+<!-- 内容 -->
+<view class="container">
+  <!-- 图标 -->
+  <image class="icon" src="/images/logo.png" />
+  <!-- 内容 -->
+  <view class="login" wx:for="{{listData}}" wx:key="index">
+    <view class="name">{{item.name}}</view>
+    <view class="content">
+      <input type="text" password="{{index == 1 ? true : false}}" placeholder="{{item.placeholder}}" placeholder-style="color:rgb(214, 214, 214);" value="{{ item.value }}" bind:blur="onInput" data-param="{{index}}" />
+    </view>
+  </view>
+  <!-- 操作 -->
+  <view class="bottom-btn" bind:tap="onLogin">登录</view>
+  <!-- 版本 -->
+  <view class="version">版本：1.0.0</view>
+</view>

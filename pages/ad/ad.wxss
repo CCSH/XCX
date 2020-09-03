@@ -1,0 +1,5 @@
+/* pages/ad/ad.wxss */
+.content {
+  width: 100vw;
+  height: 100vh;
+}
