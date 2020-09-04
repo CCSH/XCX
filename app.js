@@ -11,13 +11,16 @@ App({
   systemVersion: '',
   systemSDKVersion: '',
   // 主机地址
-  baseUrl: 'https://legong.frnnet.com/',
+  baseUrl: 'http://www.baidu.com/',
   // 是否是全面屏
   isFull: false,
   bottomH: 0,
 
   //本地key
   version: 'app_version',
+
+  //主题色
+  mainColor: '#FC594E',
 
   //临时数据
   //广告点击数据

@@ -1,3 +1,5 @@
+let app = getApp()
+
 // XML运算
 module.exports = {
   // MARK 价格处理
@@ -12,9 +14,7 @@ module.exports = {
     if (url.indexOf('http') > -1) {
       return url
     }
-
-    var baseUrl = 'http://legong.frnnet.com'
-    return baseUrl + value
+    return app.baseUrl + value
   },
 
   // MARK 获取图片
@@ -32,5 +32,5 @@ module.exports = {
   },
 
   // MARK 主题色
-  mainColor: '#FC594E',
+  mainColor: app.mainColor,
 }
