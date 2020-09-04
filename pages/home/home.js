@@ -1,5 +1,5 @@
 // pages/home/home.js
-import Toast from 'path/to/@vant/weapp/dist/toast/toast'
+import Toast from '/@vant/weapp/toast/toast'
 
 let app = getApp()
 

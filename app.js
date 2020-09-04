@@ -19,9 +19,6 @@ App({
   //本地key
   version: 'app_version',
 
-  //主题色
-  mainColor: '#FC594E',
-
   //临时数据
   //广告点击数据
   adData: null,
