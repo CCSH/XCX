@@ -1,0 +1,36 @@
+// XML运算
+module.exports = {
+  // MARK 价格处理
+  toPrice: function (value) {
+    return parseFloat(value).toFixed(2)
+  },
+
+  // MARK 获取url
+  toUrl: function (value) {
+    //转字符串
+    var url = value + ''
+    if (url.indexOf('http') > -1) {
+      return url
+    }
+
+    var baseUrl = 'http://legong.frnnet.com'
+    return baseUrl + value
+  },
+
+  // MARK 获取图片
+  toImage: function (params) {
+    var image = params + ''
+    //补全路径
+    if (image.indexOf('/images/') < 0) {
+      image = '/images/' + image
+    }
+    //补全格式
+    if (image.indexOf('.png') < 0) {
+      image = image + '.png'
+    }
+    return image
+  },
+
+  // MARK 主题色
+  mainColor: '#FC594E',
+}

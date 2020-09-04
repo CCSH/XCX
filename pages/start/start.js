@@ -1,7 +1,5 @@
 // pages/start/start.js
-
 const config = require('../../config')
-const routing = require('../../utils/routing')
 
 let app = getApp()
 
@@ -55,16 +53,17 @@ Page({
 
   // MARK 处理数据
   handleData() {
-    let self = this
     //取出本地版本
     let version = wx.getStorageSync(app.version)
 
-    // if (version && version == config.version) {
+    console.log('本地版本', version)
+    if (version != config.version) {
+      // 进入欢迎页
+      app.gotoWelCome()
+      return
+    }
+
     //进入广告页
-    // app.gotoAd()
-    // } else {
-    // 进入启动页
-    // self.gotoWelCome()
-    // }
+    app.gotoAd()
   },
 })

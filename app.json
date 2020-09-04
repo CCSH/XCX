@@ -11,7 +11,12 @@
     "pages/login/login"
   ],
   "usingComponents": {
-    "van-image": "@vant/weapp/image"
+    "van-image": "@vant/weapp/image/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-icon": "@vant/weapp/icon/index"
   },
   "window": {
     "backgroundTextStyle": "dark",

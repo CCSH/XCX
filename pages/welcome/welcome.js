@@ -1,5 +1,3 @@
-const config = require('../../config')
-
 // pages/welcome/welcome.js
 let app = getApp()
 
@@ -14,13 +12,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    //存储版本下次不展示启动页
-    wx.setStorage({
-      key: app.version,
-      data: config.version,
-    })
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -58,7 +50,7 @@ Page({
   onShareAppMessage: function () {},
 
   // MARK 点击
-  onCheck(event) {
+  onClick(event) {
     let index = event.currentTarget.dataset.param
 
     if (index == this.data.listData.length - 1) {

@@ -1,4 +1,5 @@
 const Routing = require('./utils/routing')
+const config = require('./config')
 
 //app.js
 App({
@@ -15,6 +16,14 @@ App({
   isFull: false,
   bottomH: 0,
 
+  //本地key
+  version: 'app_version',
+
+  //临时数据
+  //广告点击数据
+  adData: null,
+
+  // MARK 方法
   onLaunch: function (options) {
     let self = this
     let systemInfo = wx.getSystemInfoSync()
@@ -34,12 +43,14 @@ App({
       self.bottomH = 34
     }
   },
-
-  //本地key
-  version: 'app_version',
-
   // MARK 进入欢迎页
-  gotowWelCome() {
+  gotoWelCome() {
+    //存储版本下次不展示欢迎页
+    wx.setStorage({
+      key: this.version,
+      data: config.version,
+    })
+    //跳转
     wx.redirectTo({
       url: Routing.setRouting('welcome'),
     })
@@ -53,8 +64,11 @@ App({
   },
 
   // MARK 进入首页
-  gotoHome() {
-    wx.redirectTo({
+  gotoHome(event) {
+    //设置数据
+    this.adData = event
+    //跳转
+    wx.switchTab({
       url: Routing.setRouting('home'),
     })
   },
