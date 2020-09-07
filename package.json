@@ -1,5 +1,5 @@
 {
-  "name": "xcx_yc",
+  "name": "xcx",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@code.aliyun.com:CSH_KMX/XCX_YC.git"
+    "url": "git@code.aliyun.com:CCSH/XCX.git"
   },
   "author": "",
   "license": "ISC",
