@@ -1,1 +1,4 @@
 <!-- pages/start/start.wxml -->
+<wxs src="../../app.wxs" module="app" />
+<!-- 内容 -->
+<image class="" src="{{app.toImage('launch_image')}}" />
