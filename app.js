@@ -52,8 +52,6 @@ App({
   gotoWelCome() {
     //存储版本下次不展示欢迎页
     Store.setStorage(this.version, config.version)
-
-    //跳转
     Routing.redirectTo('welcome')
   },
 
@@ -66,7 +64,13 @@ App({
   gotoHome(event) {
     //设置数据
     this.adData = event
-    //跳转
     Routing.switchTab('home')
+  },
+
+  // MARK 进入登录页
+  gotoLogin() {
+    //设置数据
+    Store.setStorage(this.userInfo)
+    Routing.switchTab('login')
   },
 })

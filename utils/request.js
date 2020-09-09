@@ -15,49 +15,23 @@ let timeOut = 30 * 1000
 function get(event) {
   event.method = 'GET'
   return request(event)
-
-  //此方法使用云函数请求
-  wx.cloud.init()
-  return wx.cloud
-    .callFunction({
-      name: 'request_get',
-      data: {
-        method: event.method,
-        url: event.url,
-        param: event.param,
-      },
-    })
-    .then((res) => {
-      return res.result
-    })
 }
 
 // MARK POST请求
 function post(event) {
   event.method = 'POST'
   return request(event)
-
-  //此方法使用云函数请求
-  wx.cloud.init()
-  return wx.cloud
-    .callFunction({
-      name: 'request_post',
-      data: {
-        url: event.url,
-        param: event.param,
-      },
-    })
-    .then((res) => {
-      return res.result
-    })
 }
 
 // MARK 网络请求
 function request(event) {
+  //参数可以在这里统一处理
+  var data = event.param ? event.param : {}
+  data.flag = 'weixin'
   return new Promise((resolve, reject) => {
     wx.request({
       url: event.url,
-      data: event.param,
+      data: data,
       method: event.method ? event.method : 'GET',
       dataType: 'json',
       timeout: timeOut,

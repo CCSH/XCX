@@ -1,49 +1,25 @@
 // 小程序接口层
 let request = require('request.js')
+const Store = require('./store')
 
 let app = getApp()
 
 class InterFace {
   // MARK 主机地址
-  static baseUrl = 'https://legong.frnnet.com/'
+  static baseUrl = 'https://www.baidu.com/'
+
+  // MARK 需要登录
+  static needLogin() {
+    return Store.getStorage(app.userInfo).catch(() => {
+      //去登录
+      app.gotoLogin()
+    })
+  }
 
   // MARK 登录
   static login(event) {
     return request.get({
-      url: this.baseUrl + 'index.php/api/UsersIndex/category/',
-      param: event,
-    })
-  }
-
-  // MARK 订单列表
-  static orderList(event) {
-    event = event ? event : {}
-    if (app.userInfo) {
-      event.user_id = app.userInfo.user_id
-    }
-    return request.get({
-      url: this.baseUrl + 'order_list',
-      param: event,
-    })
-  }
-
-  // MARK 订单详情
-  static orderDetail(event) {
-    event = event ? event : {}
-
-    if (app.userInfo) {
-      event.user_id = app.userInfo.user_id
-    }
-    return request.get({
-      url: this.baseUrl + 'order_fetail',
-      param: event,
-    })
-  }
-
-  // MARK 确认收货
-  static confirmGood(event) {
-    return request.post({
-      url: this.baseUrl + 'confirm_good',
+      url: this.baseUrl + 'login',
       param: event,
     })
   }
