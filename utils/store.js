@@ -3,7 +3,7 @@ wx.cloud.init()
 const db = wx.cloud.database()
 const userDB = 'user_info'
 
-class DB {
+class Store {
   // MARK 获取用户信息
   static getUserInfo() {
     return this.get(userDB)
@@ -78,6 +78,35 @@ class DB {
         return res
       })
   }
+
+  //获取本地数据
+  static getStorage(key) {
+    return new Promise((resolve, reject) => {
+      let res = wx.getStorageSync(key)
+
+      if (res) {
+        resolve(res)
+      } else {
+        reject(null)
+      }
+    })
+  }
+
+  //设置本地数据
+  static setStorage(key, data) {
+    return new Promise((resolve, reject) => {
+      wx.setStorage({
+        key,
+        data,
+        success: () => {
+          resolve(true)
+        },
+        fail: () => {
+          reject(false)
+        },
+      })
+    })
+  }
 }
 
-module.exports = DB
+module.exports = Store

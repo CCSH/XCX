@@ -1,5 +1,6 @@
 // pages/start/start.js
 const config = require('../../config')
+const Store = require('../../utils/store')
 
 let app = getApp()
 
@@ -56,16 +57,20 @@ Page({
   // MARK 处理数据
   handleData() {
     //取出本地版本
-    let version = wx.getStorageSync(app.version)
-
-    console.log('本地版本', version)
-    if (version != config.version) {
-      // 进入欢迎页
-      app.gotoWelCome()
-      return
-    }
-
-    //进入广告页
-    app.gotoAd()
+    Store.getStorage(app.version)
+      .then((res) => {
+        console.log('本地版本', res, '\n最新版本', config.version)
+        if (res != config.version) {
+          // 进入欢迎页
+          app.gotoWelCome()
+        } else {
+          //进入广告页
+          app.gotoAd()
+        }
+      })
+      .catch(() => {
+        //进入广告页
+        app.gotoAd()
+      })
   },
 })

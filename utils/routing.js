@@ -41,6 +41,20 @@ class Routing {
     })
   }
 
+  // MARK 重定向
+  static redirectTo(name, param) {
+    wx.redirectTo({
+      url: this.setRouting(name, param),
+    })
+  }
+
+  // MARK 跳转tab
+  static switchTab(name, param) {
+    wx.switchTab({
+      url: this.setRouting(name, param),
+    })
+  }
+
   // MARK 导航返回指定页面
   static navBack(routeName, data) {
     let currentPages = getCurrentPages()
