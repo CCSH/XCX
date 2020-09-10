@@ -18,7 +18,7 @@
     "van-tabs": "@vant/weapp/tabs/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-toast": "@vant/weapp/toast/index",
-    "sh-calendar": "/miniprogram_npm/sh-calendar"
+    "sh-calendar": "ccsh/calendar"
   },
   "window": {
     "backgroundTextStyle": "dark",

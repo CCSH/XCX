@@ -1,5 +1,4 @@
 <wxs src="../../app.wxs" module="app" />
 <van-toast id="van-toast" />
 <!-- 内容 -->
-<view>1234</view>
-<!-- <sh-calendar maxDay="42" /> -->
+<sh-calendar maxDay="42"/>

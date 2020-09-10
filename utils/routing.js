@@ -1,18 +1,16 @@
-// 小程序路由
 class Routing {
-  // 首页
-  static homePage = '/pages/home/index'
-
+  // MARK 主页
+  static home = 'home/index'
   // MARK 路由设置
   static setRouting(name, param) {
     //设置路径
-    var routingName = ''
+    var routingName = '/pages/'
 
-    if (name.indexOf('/pages/') == -1) {
-      //补根目录
-      routingName = `/pages/${name}`
+    if (name.indexOf(routingName) == -1) {
+      //补根目录(/pages/name)
+      routingName += `${name}`
       if (routingName.split('/').length == 3) {
-        //补具体路径
+        //补具体路径(/pages/name/name)
         routingName = `${routingName}/${name}`
       }
     }
@@ -23,6 +21,7 @@ class Routing {
     if (param) {
       routingParam = `?param=${JSON.stringify(param)}`
     }
+
     return `${routingName}${routingParam}`
   }
 
@@ -41,8 +40,9 @@ class Routing {
     })
   }
 
-  // MARK 重定向
+  //MARK 重定向跳转
   static redirectTo(name, param) {
+    console.log(this.setRouting(name, param))
     wx.redirectTo({
       url: this.setRouting(name, param),
     })
@@ -57,44 +57,41 @@ class Routing {
 
   // MARK 导航返回指定页面
   static navBack(routeName, data) {
-    let currentPages = getCurrentPages()
-
-    //存在栈
-    if (currentPages > 1) {
-      var page = null
-      var delta = 1
-
-      if (routeName) {
-        currentPages.some((item, index) => {
-          //找到了
-          if (item.route.indexOf(routeName)) {
-            page = item
-            delta = currentPages.length - 1 - index
-            return true
-          }
+    let currentPages = getCurrentPages().reverse()
+    //没有名字 返回上一页面
+    if (!routeName) {
+      if (currentPages > 1) {
+        //返回上一页面
+        wx.navigateBack({
+          delta: 1,
         })
+        return
       }
-
-      if (!page) {
-        // 取出最后一个
-        page = currentPages[currentPages.length - 1]
-      }
-
-      //设置数据
-      if (data) {
-        page.onShow(data)
-      }
-
-      //返回
-      wx.navigateBack({
-        delta,
-      })
     } else {
-      //去首页
-      wx.redirectTo({
-        url: this.homePage,
+      //有名字
+      routeName = this.setRouting(routeName)
+      var isHave = false
+      //查找
+      currentPages.some((item, index) => {
+        item.route = '/' + item.route
+        //找到了
+        if (item.route == routeName) {
+          isHave = true
+          //数据给他
+          item.onCallBack(data)
+          //返回这个页面
+          wx.navigateBack({
+            delta: index,
+          })
+          return true
+        }
+        if (isHave) {
+          return
+        }
       })
     }
+    //去首页
+    this.switchTab(this.home)
   }
 }
 
