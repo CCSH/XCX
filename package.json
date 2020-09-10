@@ -13,8 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "@vant/weapp": "^1.5.0",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "ccsh": "0.0.17"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {}
 }

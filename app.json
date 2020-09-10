@@ -11,19 +11,20 @@
     "pages/login/login"
   ],
   "usingComponents": {
-    "van-image": "@vant/weapp/image/index",
+    "van-image": "@vant/weapp/image",
     "van-grid": "@vant/weapp/grid/index",
     "van-grid-item": "@vant/weapp/grid-item/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "sh-calendar": "/miniprogram_npm/sh-calendar"
   },
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "易村"
+    "navigationBarTitleText": "小程序"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
