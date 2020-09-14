@@ -1,0 +1,15 @@
+<!-- miniprogram/custom-tab-bar/index.wxml -->
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-border"></cover-view>
+  <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="onClick">
+    <block wx:if="{{index == 2}}">
+      <cover-image class="min" src="{{item.iconPath}}"></cover-image>
+    </block>
+    <block wx:else>
+      <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
+      <cover-view style="color: {{selected === index ? selectedColor : color}}">
+        {{item.text}}
+      </cover-view>
+    </block>
+  </cover-view>
+</cover-view>

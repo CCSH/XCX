@@ -28,37 +28,20 @@
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "selectedColor": "#FC594E",
+    "custom": true,
     "list": [
       {
-        "pagePath": "pages/home/home",
-        "text": "首页",
-        "iconPath": "images/tabbar_home.png",
-        "selectedIconPath": "images/tabbar_home_h.png"
+        "pagePath": "pages/home/home"
       },
       {
-        "pagePath": "pages/school/school",
-        "text": "学堂",
-        "iconPath": "images/tabbar_school.png",
-        "selectedIconPath": "images/tabbar_school_h.png"
+        "pagePath": "pages/school/school"
+      },
+
+      {
+        "pagePath": "pages/message/message"
       },
       {
-        "pagePath": "pages/e_village/e_village",
-        "text": "e村",
-        "iconPath": "images/tabbar_village.png",
-        "selectedIconPath": "images/tabbar_village_h.png"
-      },
-      {
-        "pagePath": "pages/message/message",
-        "text": "交流",
-        "iconPath": "images/tabbar_message.png",
-        "selectedIconPath": "images/tabbar_message_h.png"
-      },
-      {
-        "pagePath": "pages/me/me",
-        "text": "我的",
-        "iconPath": "images/tabbar_me.png",
-        "selectedIconPath": "images/tabbar_me_h.png"
+        "pagePath": "pages/me/me"
       }
     ]
   }
