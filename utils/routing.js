@@ -60,10 +60,13 @@ class Routing {
     let currentPages = getCurrentPages().reverse()
     //没有名字 返回上一页面
     if (!routeName) {
-      if (currentPages > 1) {
+      if (currentPages.length > 1) {
         let item = currentPages[1]
-        //数据给他
-        item.onCallBack(data)
+        if (data) {
+          //数据给他
+          item.onCallBack(data)
+        }
+
         //返回上一页面
         wx.navigateBack({
           delta: 1,
@@ -80,8 +83,11 @@ class Routing {
         //找到了
         if (item.route == routeName) {
           isHave = true
-          //数据给他
-          item.onCallBack(data)
+          if (data) {
+            //数据给他
+            item.onCallBack(data)
+          }
+
           //返回这个页面
           wx.navigateBack({
             delta: index,
