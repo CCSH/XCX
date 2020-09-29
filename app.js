@@ -71,6 +71,6 @@ App({
   gotoLogin() {
     //设置数据
     Store.setStorage(this.userInfo)
-    Routing.switchTab('login')
+    Routing.navTo('login')
   },
 })
