@@ -1,6 +1,6 @@
 class Routing {
   // MARK 主页
-  static home = 'home/index'
+  static home = 'start'
   // MARK 路由设置
   static setRouting(name, param) {
     //设置路径
@@ -40,7 +40,7 @@ class Routing {
     })
   }
 
-  //MARK 重定向跳转
+  //MARK 重定向跳转(关闭当前跳转)
   static redirectTo(name, param) {
     console.log(this.setRouting(name, param))
     wx.redirectTo({
@@ -51,6 +51,13 @@ class Routing {
   // MARK 跳转tab
   static switchTab(name, param) {
     wx.switchTab({
+      url: this.setRouting(name, param),
+    })
+  }
+
+  // MARK 重启
+  static reLaunch(name, param) {
+    wx.reLaunch({
       url: this.setRouting(name, param),
     })
   }
@@ -100,7 +107,7 @@ class Routing {
       })
     }
     //去首页
-    this.switchTab(this.home)
+    this.redirectTo(this.home)
   }
 }
 

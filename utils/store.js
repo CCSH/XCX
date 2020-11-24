@@ -79,19 +79,6 @@ class Store {
       })
   }
 
-  //获取本地数据
-  static getStorage(key) {
-    return new Promise((resolve, reject) => {
-      let res = wx.getStorageSync(key)
-
-      if (res) {
-        resolve(res)
-      } else {
-        reject(null)
-      }
-    })
-  }
-
   //设置本地数据
   static setStorage(key, data) {
     return new Promise((resolve, reject) => {

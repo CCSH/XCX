@@ -1,25 +1,36 @@
 // 小程序接口层
 let request = require('request.js')
-const Store = require('./store')
 
 let app = getApp()
 
 class InterFace {
-  // MARK 主机地址
-  static baseUrl = 'https://www.baidu.com/'
-
   // MARK 需要登录
   static needLogin() {
-    return Store.getStorage(app.userInfo).catch(() => {
-      //去登录
-      app.gotoLogin()
+    return new Promise((resolve, reject) => {
+      let info = this.needLoginSync(app.userInfo)
+
+      if (info) {
+        resolve(info)
+      } else {
+        reject()
+      }
     })
+  }
+
+  static needLoginSync() {
+    var info = wx.getStorageSync(app.userInfo)
+    if (info) {
+      return info
+    }
+    //去登录
+    app.gotoLogin()
+    return null
   }
 
   // MARK 登录
   static login(event) {
     return request.get({
-      url: this.baseUrl + 'login',
+      url: app.baseUrl + 'login',
       param: event,
     })
   }

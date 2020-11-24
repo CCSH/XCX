@@ -9,7 +9,7 @@ module.exports = {
 // LOG控制
 let isLog = true
 // 网络请求超时
-let timeOut = 30 * 1000
+let timeOut = 10 * 1000
 
 // MARK GET请求
 function get(event) {
@@ -28,6 +28,7 @@ function request(event) {
   //参数可以在这里统一处理
   var data = event.param ? event.param : {}
   data.flag = 'weixin'
+
   return new Promise((resolve, reject) => {
     wx.request({
       url: event.url,
@@ -49,7 +50,9 @@ function request(event) {
         wx.hideLoading()
         wx.stopPullDownRefresh()
         if (isLog) {
-          console.log('请求回调:', res)
+          console.log('接口:', event.url)
+          console.log('入参:', data)
+          console.log('请求回调:', res.data)
         }
       },
     })

@@ -21,7 +21,7 @@ App({
   // 版本
   version: 'app_version',
   // 用户信息
-  userInfo: 'user-info',
+  userInfo: 'user_info',
 
   // MARK 临时数据
   // 广告点击数据
@@ -64,12 +64,12 @@ App({
   gotoHome(event) {
     //设置数据
     this.adData = event
-    Routing.switchTab('home')
+    Routing.reLaunch('home')
   },
 
   // MARK 进入登录页
   gotoLogin() {
-    //设置数据
+    //清除登录数据
     Store.setStorage(this.userInfo)
     Routing.navTo('login')
   },
