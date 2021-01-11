@@ -42,7 +42,6 @@ class Routing {
 
   //MARK 重定向跳转(关闭当前跳转)
   static redirectTo(name, param) {
-    console.log(this.setRouting(name, param))
     wx.redirectTo({
       url: this.setRouting(name, param),
     })
