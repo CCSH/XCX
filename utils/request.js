@@ -50,9 +50,7 @@ function request(event) {
         wx.hideLoading()
         wx.stopPullDownRefresh()
         if (isLog) {
-          console.log('接口:', event.url)
-          console.log('入参:', data)
-          console.log('请求回调:', res.data)
+          console.log('地址:', event.url, '\n参数:', data, '\n响应:', res)
         }
       },
     })
