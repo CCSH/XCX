@@ -59,7 +59,7 @@ function request(event) {
 
 // MARK 下载文件
 function download(event) {
-  var downTask = wx.downloadFile({
+  var task = wx.downloadFile({
     url: event.url,
     fail: () => {},
     complete: (res) => {
@@ -76,12 +76,12 @@ function download(event) {
 
   // DownloadTask.offProgressUpdate(function callback)
   // 取消监听下载进度变化事件
-  return downTask
+  return task
 }
 
 // MARK 上传文件
 function upload(event) {
-  var upTask = wx.uploadFile({
+  var task = wx.uploadFile({
     url: event.url,
     filePath: event.filePath,
     name: Date.parse(new Date()),
@@ -101,5 +101,5 @@ function upload(event) {
 
   // UploadTask.offProgressUpdate(function callback)
   // 取消监听上传进度变化事件
-  return upTask
+  return task
 }
